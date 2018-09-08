@@ -30,7 +30,7 @@ class News extends CI_Controller {
                 $data['title'] = $data['news_item']['title'];
 
                 $this->load->view('templates/header', $data);
-                $this->load->view('news/view', $data);
+                $this->load->view('news/news', $data);
                 $this->load->view('templates/footer');
         }
 

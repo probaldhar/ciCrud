@@ -36,15 +36,18 @@ function gridController(GridService)
 	}
 
 
-	function addStudent() {
-		console.log('>>>', vm.studentObj);
-		GridService.addStudent(vm.studentObj).then(function(response){
-			console.log('response', response);
-			if (response.status == 201) {
-				var result = response.data;
-				vm.myData.push(result.result);
-			}
-		});          
+	function addStudent(isValid) {
+
+		if (isValid) { 
+			console.log('>>>', vm.studentObj);
+			GridService.addStudent(vm.studentObj).then(function(response){
+				console.log('response', response);
+				if (response.status == 201) {
+					var result = response.data;
+					vm.myData.push(result.result);
+				}
+			});  
+		}        
 	}
 
 	// vm.tambahData = function(){

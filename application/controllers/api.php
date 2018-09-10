@@ -26,4 +26,34 @@ class Api extends REST_Controller
 	
 		$this->response($users, REST_Controller::HTTP_OK);
 	}
+
+	public function users_post()
+    {
+    	$params = json_decode(file_get_contents('php://input'));
+
+    	// print_r($params);
+    
+        $result = [
+        	'status' => 'success',
+        	'code' => REST_Controller::HTTP_CREATED,
+        	'result' => ['id' => 3, 'name' => $params->name, 'email' => $params->title, 'fact' => 'Developed on PHP']
+       	];
+
+       	$result1 = [
+        	// 'status' => 'success',
+        	'title' => $params->title,
+        	'slug' => $params->name,
+        	'text' => 'same text added'
+       	];
+
+       	$this->load->model('News_model', 'NewsModel');
+
+       	$this->NewsModel->add_users($result1);
+       	
+        $this->set_response($result, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
+    }
+
 }
+
+
+

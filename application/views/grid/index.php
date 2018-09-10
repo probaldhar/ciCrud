@@ -20,8 +20,23 @@
 		
 		<div id="grid1" ui-grid='{ data: ctrl.myData }' class="grid"></div>
 
+
+		<form method="post" id="create_student_info_frm" ng-submit="ctrl.addStudent()">
+
+		    <label for="title">Title</label>
+		    <input type="text" name="title" ng-model="ctrl.studentObj.title" /><br />
+
+		    <label for="text">Text</label>
+		    <textarea name="text" ng-model="ctrl.studentObj.name"></textarea><br />
+
+		    <!-- <input type="submit" name="submit" value="Create news item" /> -->
+		    <button type="submit" class="btn btn-primary">Create news item</button>
+
+		</form>
+
 	</div>
 </div>
+
 
 
 

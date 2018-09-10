@@ -34,6 +34,23 @@ class News_model extends CI_Model {
 		    return $this->db->insert('news', $data);
 		}
 
+		public function add_users($params) {
+			// $data = [
+			// 	'title' => $params->name,
+			// 	'email' => $params->title
+			// ];
+
+			// print_r($params);
+
+			$result = $this->db->insert('news', $params);
+			$newId = $this->db->insert_id();
+			if ($result) {
+				// return $this->db->get($newId)->row_array();
+				return "data added";
+			}
+			return false;
+		}
+
 
 }
 
